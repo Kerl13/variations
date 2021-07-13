@@ -40,3 +40,10 @@ $(BUILD)tests/unrank: $(BUILD)libvar.a $(BUILD)libxoshiro.a $(BUILD)libibst.a
 $(BUILD)tests/unrank: tests/unrank.c
 	@mkdir -p $(BUILD)tests/
 	$(CC) $(CFLAGS) -L$(BUILD) -o $@ tests/unrank.c -lvar -lgmp -libst -lxoshiro
+
+# --- Benchmark ---
+
+$(BUILD)bench/random: $(BUILD)libvar.a $(BUILD)libxoshiro.a $(BUILD)libibst.a
+$(BUILD)bench/random: bench/random.c
+	@mkdir -p $(BUILD)bench/
+	$(CC) $(CFLAGS) -L$(BUILD) -o $@ bench/random.c -lvar -lgmp -libst -lxoshiro
